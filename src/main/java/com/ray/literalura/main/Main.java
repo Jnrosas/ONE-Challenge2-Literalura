@@ -23,6 +23,7 @@ public class Main {
             Menu
             1. Search book by title
             2. Display all registered books
+            3. Display all registered authors
             
             0. Exit
             
@@ -43,7 +44,7 @@ public class Main {
                service.displayRegisteredBooks(cBooksRepository);
                break;
             case 3:
-//               service.displayRegisteredAuthors();
+               service.displayRegisteredAuthors(cPersonRepository);
                break;
             case 0:
                System.out.println("Application closed");

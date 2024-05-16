@@ -46,12 +46,14 @@ public class DataService {
    }
 
 
-   public void displayRegisteredBooks(CBooksRepository repository) {
-      var allBooks = repository.findAll();
+   public void displayRegisteredBooks(CBooksRepository cBooksRepository) {
+      var allBooks = cBooksRepository.findAll();
       allBooks.forEach(System.out::println);
    }
 
 
-   public void displayRegisteredAuthors(CBooksRepository repository) {
+   public void displayRegisteredAuthors(CPersonRepository cPersonRepository) {
+      var allAuthors = cPersonRepository.findAll();
+      allAuthors.forEach(System.out::println);
    }
 }

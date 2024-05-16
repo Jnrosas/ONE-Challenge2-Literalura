@@ -15,6 +15,9 @@ public class CPerson {
    private String birth_year;
    private String death_year;
 
+
+   public CPerson() {}
+
    public CPerson(Person person) {
       this.name = person.name();
       this.birth_year = person.birth_year();
@@ -55,8 +58,10 @@ public class CPerson {
 
    @Override
    public String toString() {
-      return "name= " + name +
-            ", birth_year= " + birth_year +
-            ", death_year= " + death_year;
+      return "\nAuthors\n=================================" +
+            "\nAuthor's name:\t" + name +
+            "\nBirth year:\t" + birth_year +
+            "\nDeath year:\t" +  death_year +
+            "\n=================================\n";
    }
 }
