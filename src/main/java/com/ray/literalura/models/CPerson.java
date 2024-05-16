@@ -2,6 +2,8 @@ package com.ray.literalura.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "authors")
 public class CPerson {

@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface CBooksRepository extends JpaRepository<CBooks, Long> {
 
    Optional<CBooks> findByTitleContainsIgnoreCase(String bookTitle);
+
 }

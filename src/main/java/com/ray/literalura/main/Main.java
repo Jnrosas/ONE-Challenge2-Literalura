@@ -1,6 +1,7 @@
 package com.ray.literalura.main;
 
 import com.ray.literalura.repository.CBooksRepository;
+import com.ray.literalura.repository.CPersonRepository;
 import com.ray.literalura.service.DataService;
 
 import java.util.Scanner;
@@ -8,10 +9,12 @@ import java.util.Scanner;
 public class Main {
    private Scanner scanner = new Scanner(System.in);
    private DataService service = new DataService();
-   private CBooksRepository repository;
+   private CBooksRepository cBooksRepository;
+   private CPersonRepository cPersonRepository;
 
-   public Main(CBooksRepository repository) {
-      this.repository = repository;
+   public Main(CBooksRepository cBooksRepository, CPersonRepository cPersonRepository) {
+      this.cBooksRepository = cBooksRepository;
+      this.cPersonRepository = cPersonRepository;
    }
 
    public void menu() {
@@ -34,13 +37,13 @@ public class Main {
 
          switch (option) {
             case 1:
-               service.searchBookByTitle(repository);
+               service.searchBookByTitle(cBooksRepository, cPersonRepository);
                break;
             case 2:
-               service.displayRegisteredBooks(repository);
+               service.displayRegisteredBooks(cBooksRepository);
                break;
             case 3:
-               service.displayRegisteredAuthors(repository);
+//               service.displayRegisteredAuthors();
                break;
             case 0:
                System.out.println("Application closed");
