@@ -67,11 +67,11 @@ public class CBooks {
 
    @Override
    public String toString() {
-      return "\nLiteralura\n=================================" +
+      return "\nBook\n=================================" +
       "\nBook title:\t" + title +
       "\nAuthor:\t" + authors +
       "\nLanguages:\t" +  languages +
       "\nDownload count:\t" +  download_count +
-      "\n=================================";
+      "\n=================================\n";
    }
 }

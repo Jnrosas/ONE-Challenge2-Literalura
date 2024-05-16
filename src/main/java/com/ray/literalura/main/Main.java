@@ -19,7 +19,7 @@ public class Main {
             
             Menu
             1. Search book by title
-            2. Display all books searched
+            2. Display all registered books
             
             0. Exit
             
@@ -37,7 +37,10 @@ public class Main {
                service.searchBookByTitle(repository);
                break;
             case 2:
-               service.displayAllBooks(repository);
+               service.displayRegisteredBooks(repository);
+               break;
+            case 3:
+               service.displayRegisteredAuthors(repository);
                break;
             case 0:
                System.out.println("Application closed");

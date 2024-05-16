@@ -4,7 +4,6 @@ import com.ray.literalura.models.Books;
 import com.ray.literalura.models.CBooks;
 import com.ray.literalura.models.Data;
 import com.ray.literalura.repository.CBooksRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -37,7 +36,7 @@ public class DataService {
          var data = convertingData.getData(json, Data.class);
 
          Optional<Books> bookSought = data.results().stream()
-//            .filter(b -> b.title().toLowerCase().contains(bookTitle.toLowerCase()))
+//            .filter(b -> b.title().toLowerCase().contains(bookTitle.toLowerCase())) //using search according to api
                .findFirst();
          if (bookSought.isPresent()) {
             CBooks cbooks = new CBooks(bookSought.get());
@@ -48,8 +47,13 @@ public class DataService {
    }
 
 
-   public void displayAllBooks(CBooksRepository repository) {
+   public void displayRegisteredBooks(CBooksRepository repository) {
       var allBooks = repository.findAll();
-      System.out.println(allBooks);
+      allBooks.forEach(System.out::println);
+   }
+
+
+   public void displayRegisteredAuthors(CBooksRepository repository) {
+
    }
 }
