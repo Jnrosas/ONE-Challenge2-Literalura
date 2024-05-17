@@ -3,6 +3,7 @@ package com.ray.literalura.service;
 import com.ray.literalura.models.*;
 import com.ray.literalura.repository.CBooksRepository;
 import com.ray.literalura.repository.CPersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -10,6 +11,12 @@ import java.util.Scanner;
 
 @Service
 public class DataService {
+   //didn't use this, because I get error "this.cPersonRepository is null"
+//   @Autowired
+//   CPersonRepository cPersonRepository;
+//   @Autowired
+//   CBooksRepository cBooksRepository;
+
 
    private final String URL_BASE = "https://gutendex.com/books/";
    private ConsumingAPI consumingAPI = new ConsumingAPI();
@@ -55,5 +62,14 @@ public class DataService {
    public void displayRegisteredAuthors(CPersonRepository cPersonRepository) {
       var allAuthors = cPersonRepository.findAll();
       allAuthors.forEach(System.out::println);
+   }
+
+
+   public void aliveAuthorsByYear(CPersonRepository cPersonRepository) {
+      System.out.println("Enter a year: ");
+      var year = scanner.nextInt();
+      scanner.nextLine();
+      var aliveAuthors = cPersonRepository.aliveAuthorsByYear(year);
+      aliveAuthors.forEach(System.out::println);
    }
 }
