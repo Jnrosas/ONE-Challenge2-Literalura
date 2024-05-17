@@ -37,7 +37,7 @@ public class DataService {
             .findFirst();
          if (bookSought.isPresent()) {
             CBooks cbooks = new CBooks(bookSought.get());
-            CPerson cperson = new CPerson(bookSought.get().authors().get(0));
+            CPerson cperson = new CPerson(bookSought.get().authors().get(0), bookSought.get().title());
             cBooksRepository.save(cbooks);
             cPersonRepository.save(cperson);
             System.out.println("Book found\n" + cbooks);

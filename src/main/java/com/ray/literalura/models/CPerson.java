@@ -2,6 +2,7 @@ package com.ray.literalura.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,14 +15,16 @@ public class CPerson {
    private String name;
    private String birth_year;
    private String death_year;
+   private List<String> books = new ArrayList<>();
 
 
    public CPerson() {}
 
-   public CPerson(Person person) {
+   public CPerson(Person person, String book) {
       this.name = person.name();
       this.birth_year = person.birth_year();
       this.death_year = person.death_year();
+      this.books.add(book);
    }
 
    public Long getId() {
@@ -56,12 +59,21 @@ public class CPerson {
       this.death_year = death_year;
    }
 
+   public List<String> getBooks() {
+      return books;
+   }
+
+   public void setBooks(List<String> books) {
+      this.books = books;
+   }
+
    @Override
    public String toString() {
       return "\nAuthors\n=================================" +
             "\nAuthor's name:\t" + name +
             "\nBirth year:\t" + birth_year +
             "\nDeath year:\t" +  death_year +
+            "\nBooks:\t" + books +
             "\n=================================\n";
    }
 }
