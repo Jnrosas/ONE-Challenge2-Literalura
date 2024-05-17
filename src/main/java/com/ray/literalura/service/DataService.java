@@ -120,4 +120,13 @@ public class DataService {
       var leastDownloadedBook = cBooksRepository.findByDownload_countMin();
       System.out.println(leastDownloadedBook);
    }
+
+   public void authorByName(CPersonRepository cPersonRepository) {
+      System.out.println("Enter the author's name: ");
+      var authorName = scanner.nextLine();
+      var author = cPersonRepository.findByNameContainsIgnoreCase(authorName);
+      if (author.isPresent()) {
+         System.out.println("Author found\n" + author.get());
+      } else System.out.print("\nAuthor not found\n");
+   }
 }

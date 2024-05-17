@@ -28,6 +28,7 @@ public class Main {
             5. Search registered book by language
             6. Display the most downloaded registered book
             7. Display the least downloaded registered book
+            8. Search author registered by name
             
             0. Exit
             
@@ -61,6 +62,9 @@ public class Main {
                break;
             case 7:
                service.leastDownloadedRegisteredBook(cBooksRepository);
+               break;
+            case 8:
+               service.authorByName(cPersonRepository);
                break;
             case 0:
                System.out.println("Application closed");
