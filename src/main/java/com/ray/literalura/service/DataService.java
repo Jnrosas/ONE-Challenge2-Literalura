@@ -3,15 +3,14 @@ package com.ray.literalura.service;
 import com.ray.literalura.models.*;
 import com.ray.literalura.repository.CBooksRepository;
 import com.ray.literalura.repository.CPersonRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Locale;
 import java.util.Optional;
 import java.util.Scanner;
 
 @Service
 public class DataService {
+
    //didn't use this, because I get error "this.cPersonRepository is null"
 //   @Autowired
 //   CPersonRepository cPersonRepository;
