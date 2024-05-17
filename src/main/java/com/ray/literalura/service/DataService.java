@@ -6,6 +6,7 @@ import com.ray.literalura.repository.CPersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Locale;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -71,5 +72,43 @@ public class DataService {
       scanner.nextLine();
       var aliveAuthors = cPersonRepository.aliveAuthorsByYear(year);
       aliveAuthors.forEach(System.out::println);
+   }
+
+   public void displayRegisteredBooksByLanguage(CBooksRepository cBooksRepository) {
+      System.out.println("""
+            Choose the language to look for
+            EN - English
+            ES - Spanish
+            PT - Portuguese
+            FR - French
+            DE - German
+            (for example: en):
+            """);
+      var option = scanner.nextLine();
+      switch (option.toLowerCase()) {
+         case "en":
+            var en = cBooksRepository.findByLanguagesIgnoreCase(option);
+            en.forEach(System.out::println);
+            break;
+         case "es":
+            var es = cBooksRepository.findByLanguagesIgnoreCase(option);
+            es.forEach(System.out::println);
+            break;
+         case "pt":
+            var pt = cBooksRepository.findByLanguagesIgnoreCase(option);
+            pt.forEach(System.out::println);
+            break;
+         case "fr":
+            var fr = cBooksRepository.findByLanguagesIgnoreCase(option);
+            fr.forEach(System.out::println);
+            break;
+         case "de":
+            var de = cBooksRepository.findByLanguagesIgnoreCase(option);
+            de.forEach(System.out::println);
+            break;
+         default:
+            System.out.println("Invalid option");
+
+      }
    }
 }

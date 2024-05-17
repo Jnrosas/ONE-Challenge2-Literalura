@@ -25,6 +25,7 @@ public class Main {
             2. Display all registered books
             3. Display all registered authors
             4. Provided a year, display the authors alive then
+            5. Search registered book by language
             
             0. Exit
             
@@ -49,6 +50,9 @@ public class Main {
                break;
             case 4:
                service.aliveAuthorsByYear(cPersonRepository);
+               break;
+            case 5:
+               service.displayRegisteredBooksByLanguage(cBooksRepository);
                break;
             case 0:
                System.out.println("Application closed");
