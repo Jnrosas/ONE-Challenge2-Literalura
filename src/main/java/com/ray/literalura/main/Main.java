@@ -26,6 +26,8 @@ public class Main {
             3. Display all registered authors
             4. Provided a year, display the authors alive then
             5. Search registered book by language
+            6. Display the most downloaded registered book
+            7. Display the least downloaded registered book
             
             0. Exit
             
@@ -53,6 +55,12 @@ public class Main {
                break;
             case 5:
                service.displayRegisteredBooksByLanguage(cBooksRepository);
+               break;
+            case 6:
+               service.mostDownloadedRegisteredBook(cBooksRepository);
+               break;
+            case 7:
+               service.leastDownloadedRegisteredBook(cBooksRepository);
                break;
             case 0:
                System.out.println("Application closed");

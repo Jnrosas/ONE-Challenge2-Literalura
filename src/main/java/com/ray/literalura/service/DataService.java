@@ -111,4 +111,14 @@ public class DataService {
 
       }
    }
+
+   public void mostDownloadedRegisteredBook(CBooksRepository cBooksRepository) {
+      var mostDownloadedBook = cBooksRepository.findByDownload_countMax();
+      System.out.println(mostDownloadedBook);
+   }
+
+   public void leastDownloadedRegisteredBook(CBooksRepository cBooksRepository) {
+      var leastDownloadedBook = cBooksRepository.findByDownload_countMin();
+      System.out.println(leastDownloadedBook);
+   }
 }
