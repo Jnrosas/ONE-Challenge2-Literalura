@@ -34,13 +34,13 @@ public class Main {
             
             0. Exit
             
-            Select option: """;
+            Select option:\t""";
 
       var option = -1;
 
       try {
          while (option != 0) {
-            System.out.println(menu);
+            System.out.print(menu);
             option = scanner.nextInt();
             scanner.nextLine();
 
@@ -73,15 +73,15 @@ public class Main {
                   service.countBooks(cBooksRepository);
                   break;
                case 0:
-                  System.out.println("Application closed");
+                  System.out.println("\nApplication closed\n");
                   break;
                default:
-                  System.out.println("Invalid option");
+                  System.out.println("\nInvalid option\n");
             }
          }
       }
       catch (InputMismatchException e) {
-         System.out.println("\nInvalid option, enter a number from the Menu option\nApplication closed");
+         System.out.println("\nInvalid option, enter a number from the Menu option\nApplication closed\n");
       }
    }
 }

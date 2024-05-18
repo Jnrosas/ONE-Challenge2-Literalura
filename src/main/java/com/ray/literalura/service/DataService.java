@@ -74,37 +74,51 @@ public class DataService {
    }
 
    public void displayRegisteredBooksByLanguage(CBooksRepository cBooksRepository) {
-      System.out.println("""
-            Choose the language to look for
+      System.out.print("""
+            \nChoose the language to look for
             EN - English
             ES - Spanish
             PT - Portuguese
             FR - French
             DE - German
-            (for example: en):
-            """);
+            (for example: en):\t""");
       var option = scanner.nextLine();
       switch (option.toLowerCase()) {
          case "en":
             var en = cBooksRepository.findByLanguagesIgnoreCase(option);
-            en.forEach(System.out::println);
-            break;
+            if (en.size() > 0) {
+               en.forEach(System.out::println);
+               break;
+            } else System.out.println("\nNo books in English found"); break;
+
          case "es":
             var es = cBooksRepository.findByLanguagesIgnoreCase(option);
-            es.forEach(System.out::println);
-            break;
+            if (es.size() > 0) {
+               es.forEach(System.out::println);
+               break;
+            } else System.out.println("\nNo books in Spanish found"); break;
+
          case "pt":
             var pt = cBooksRepository.findByLanguagesIgnoreCase(option);
-            pt.forEach(System.out::println);
-            break;
+            if (pt.size() > 0) {
+               pt.forEach(System.out::println);
+               break;
+            } else System.out.println("\nNo books in Portuguese found"); break;
+
          case "fr":
             var fr = cBooksRepository.findByLanguagesIgnoreCase(option);
-            fr.forEach(System.out::println);
-            break;
+            if (fr.size() > 0) {
+               fr.forEach(System.out::println);
+               break;
+            } else System.out.println("\nNo books in French found"); break;
+
          case "de":
             var de = cBooksRepository.findByLanguagesIgnoreCase(option);
-            de.forEach(System.out::println);
-            break;
+            if (de.size() > 0) {
+               de.forEach(System.out::println);
+               break;
+            } else System.out.println("\nNo books in German found"); break;
+
          default:
             System.out.println("Invalid option");
 
@@ -122,17 +136,17 @@ public class DataService {
    }
 
    public void authorByName(CPersonRepository cPersonRepository) {
-      System.out.println("Enter the author's name: ");
+      System.out.println("\nEnter the author's name: ");
       var authorName = scanner.nextLine();
       var author = cPersonRepository.findByNameContainsIgnoreCase(authorName);
       if (author.isPresent()) {
-         System.out.println("Author found\n" + author.get());
+         System.out.println("\nAuthor found\n" + author.get());
       } else System.out.print("\nAuthor not found\n");
    }
 
    public void countBooks(CBooksRepository cBooksRepository) {
       var numberOfBooks = cBooksRepository.count();
       System.out.println("\nThere are currently " + numberOfBooks +
-            " books registered in the Database");
+            " books registered in the Database\n");
    }
 }
