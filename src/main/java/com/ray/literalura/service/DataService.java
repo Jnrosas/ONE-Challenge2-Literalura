@@ -129,4 +129,10 @@ public class DataService {
          System.out.println("Author found\n" + author.get());
       } else System.out.print("\nAuthor not found\n");
    }
+
+   public void countBooks(CBooksRepository cBooksRepository) {
+      var numberOfBooks = cBooksRepository.count();
+      System.out.println("\nThere are currently " + numberOfBooks +
+            " books registered in the Database");
+   }
 }

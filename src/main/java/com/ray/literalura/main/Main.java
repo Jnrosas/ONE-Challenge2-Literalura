@@ -4,6 +4,7 @@ import com.ray.literalura.repository.CBooksRepository;
 import com.ray.literalura.repository.CPersonRepository;
 import com.ray.literalura.service.DataService;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -29,6 +30,7 @@ public class Main {
             6. Display the most downloaded registered book
             7. Display the least downloaded registered book
             8. Search author registered by name
+            9. How many books are there, registered in the DB?
             
             0. Exit
             
@@ -36,42 +38,50 @@ public class Main {
 
       var option = -1;
 
-      while (option != 0) {
-         System.out.println(menu);
-         option = scanner.nextInt();
-         scanner.nextLine();
+      try {
+         while (option != 0) {
+            System.out.println(menu);
+            option = scanner.nextInt();
+            scanner.nextLine();
 
-         switch (option) {
-            case 1:
-               service.searchBookByTitle(cBooksRepository, cPersonRepository);
-               break;
-            case 2:
-               service.displayRegisteredBooks(cBooksRepository);
-               break;
-            case 3:
-               service.displayRegisteredAuthors(cPersonRepository);
-               break;
-            case 4:
-               service.aliveAuthorsByYear(cPersonRepository);
-               break;
-            case 5:
-               service.displayRegisteredBooksByLanguage(cBooksRepository);
-               break;
-            case 6:
-               service.mostDownloadedRegisteredBook(cBooksRepository);
-               break;
-            case 7:
-               service.leastDownloadedRegisteredBook(cBooksRepository);
-               break;
-            case 8:
-               service.authorByName(cPersonRepository);
-               break;
-            case 0:
-               System.out.println("Application closed");
-               break;
-            default:
-               System.out.println("Invalid option");
+            switch (option) {
+               case 1:
+                  service.searchBookByTitle(cBooksRepository, cPersonRepository);
+                  break;
+               case 2:
+                  service.displayRegisteredBooks(cBooksRepository);
+                  break;
+               case 3:
+                  service.displayRegisteredAuthors(cPersonRepository);
+                  break;
+               case 4:
+                  service.aliveAuthorsByYear(cPersonRepository);
+                  break;
+               case 5:
+                  service.displayRegisteredBooksByLanguage(cBooksRepository);
+                  break;
+               case 6:
+                  service.mostDownloadedRegisteredBook(cBooksRepository);
+                  break;
+               case 7:
+                  service.leastDownloadedRegisteredBook(cBooksRepository);
+                  break;
+               case 8:
+                  service.authorByName(cPersonRepository);
+                  break;
+               case 9:
+                  service.countBooks(cBooksRepository);
+                  break;
+               case 0:
+                  System.out.println("Application closed");
+                  break;
+               default:
+                  System.out.println("Invalid option");
+            }
          }
+      }
+      catch (InputMismatchException e) {
+         System.out.println("\nInvalid option, enter a number from the Menu option\nApplication closed");
       }
    }
 }

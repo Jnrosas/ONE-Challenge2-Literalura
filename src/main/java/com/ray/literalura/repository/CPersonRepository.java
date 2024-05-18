@@ -12,6 +12,7 @@ public interface CPersonRepository extends JpaRepository<CPerson, Long> {
    @Query("select p from CPerson p where :year between p.birth_year and p.death_year")
    List<CPerson> aliveAuthorsByYear(int year);
 
-   @Query(value = "select * from authors where name ilike %:authorName%", nativeQuery = true)
+//   @Query(value = "select * from authors where name ilike %:authorName%", nativeQuery = true)
+   @Query("select p from CPerson p where name ilike %:authorName%")
    Optional<CPerson> findByNameContainsIgnoreCase(String authorName);
 }
